@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import GameParams from '../components/GameParams'
+import Grid from '../components/Grid'
 import Header from '../components/Header'
 
 const StyledApp = styled.div`
@@ -7,10 +10,12 @@ const StyledApp = styled.div`
 `
 
 function App() {
+  const [sideSize, setSideSize] = useState(3)
   return (
     <StyledApp>
       <Header />
-      <h2>Bienvenue dans mon app 😄</h2>
+      <GameParams setSideSize={setSideSize} />
+      <Grid sideSize={sideSize} />
     </StyledApp>
   )
 }
