@@ -14,13 +14,33 @@ const StyledSquare = styled.div`
   }
 `
 
-function Square(props) {
-  const index = props.index
-  // const value = props.value
+function Square({
+  index,
+  id,
+  sizeSide,
+  startGame,
+  roundOfPlayer,
+  setRoundOfPlayer,
+}) {
   const [squareValue, setSquareValue] = useState(null)
-
   return (
-    <StyledSquare key={index} onClick={() => setSquareValue('X')}>
+    <StyledSquare
+      className="squares"
+      key={index}
+      id={id}
+      onClick={() => {
+        if (startGame) {
+          if (squareValue === null) {
+            if (roundOfPlayer) {
+              setSquareValue('X')
+            } else {
+              setSquareValue('O')
+            }
+            setRoundOfPlayer(!roundOfPlayer)
+          }
+        }
+      }}
+    >
       {squareValue}
     </StyledSquare>
   )

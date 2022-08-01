@@ -26,15 +26,21 @@ function CreateTable(size) {
   return table
 }
 
-function Grid(props) {
-  const sideSize = props.sideSize
+function Grid({ sideSize, startGame, roundOfPlayer, setRoundOfPlayer }) {
   const boardSize = sideSize * sideSize
   const table = CreateTable(boardSize)
   return (
     <BoardWrapper>
       <BoardContainer size={sideSize}>
         {table.map((elt) => (
-          <Square key={table.indexOf(elt)} />
+          <Square
+            key={table.indexOf(elt)}
+            id={table.indexOf(elt)}
+            sideSize={sideSize}
+            startGame={startGame}
+            roundOfPlayer={roundOfPlayer}
+            setRoundOfPlayer={setRoundOfPlayer}
+          />
         ))}
       </BoardContainer>
     </BoardWrapper>

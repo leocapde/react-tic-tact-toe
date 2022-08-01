@@ -5,17 +5,32 @@ import Grid from '../components/Grid'
 import Header from '../components/Header'
 
 const StyledApp = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
 `
 
 function App() {
   const [sideSize, setSideSize] = useState(3)
+  const [startGame, setStartGame] = useState(false)
+  const [roundOfPlayer, setRoundOfPlayer] = useState(true)
   return (
     <StyledApp>
       <Header />
-      <GameParams setSideSize={setSideSize} />
-      <Grid sideSize={sideSize} />
+      <GameParams
+        setSideSize={setSideSize}
+        startGame={startGame}
+        setStartGame={setStartGame}
+        roundOfPlayer={roundOfPlayer}
+        setRoundOfPlayer={setRoundOfPlayer}
+      />
+      <Grid
+        sideSize={sideSize}
+        startGame={startGame}
+        roundOfPlayer={roundOfPlayer}
+        setRoundOfPlayer={setRoundOfPlayer}
+      />
     </StyledApp>
   )
 }

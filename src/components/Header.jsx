@@ -7,6 +7,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   background-color: white;
   color: black;
+  width: 100%;
 `
 const LogoSpin = keyframes`
   from {
